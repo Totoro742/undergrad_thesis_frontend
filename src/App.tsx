@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Canvas from "./components/common/Canvas";
+import MaterialsList from "./components/common/MaterialsList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [selectedMaterial, setSelectedMaterial] = useState<Array<string>>(["brick","orange"])
+    return (
+        <div className="App">
+            <Canvas selectedMaterial={selectedMaterial}/>
+            <MaterialsList selectedMaterial={selectedMaterial} setSelectedMaterial={setSelectedMaterial}/>
+        </div>
+    );
 }
 
 export default App;
